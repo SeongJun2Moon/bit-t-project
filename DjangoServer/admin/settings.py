@@ -37,12 +37,15 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "kda_nlp",
+    "kill_analysis",
+    "ward_places",
     "playlist",
     "rest_framework"
 ]
 
 
-CORS_ORIGIN_WHITELIST = ['http://192.   168.0.19:9090 ',
+CORS_ORIGIN_WHITELIST = ['http://172.25.112.1:9090',
                          'http://localhost:9090'] #api 설정?
 CORS_ALLOW_CREDENTIALS = True
 
