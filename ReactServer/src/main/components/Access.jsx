@@ -22,24 +22,20 @@ const Access = () => {
     console.log(inputs[""]);
   };
 
-  // const onClick = (e) => {
-  //   e.preventDefault();
-  //   const nameRequests = { Name };
-  //   alert(`사용자 이름: ${JSON.stringify(nameRequests)}`);
-  //   postMainApi(nameRequests)
-  //     .then((res) => {
-  //       console.log(`Response is ${res.config.data}`);
-  //       localStorage.setItem("token", JSON.stringify(res.config.data));
-  //       alert(`닉네임 : ${JSON.stringify(res.data.name)}`);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //       alert("다시 입력하세요.");
-  //     });
-  //   navigate("/records");
-  // };
-
   const onClick = (e) => {
+    e.preventDefault();
+    const nameRequests = { Name };
+    alert(`사용자 이름: ${JSON.stringify(nameRequests)}`);
+    postMainApi(nameRequests)
+      .then((res) => {
+        console.log(`Response is ${res.config.data}`);
+        localStorage.setItem("token", JSON.stringify(res.config.data));
+        alert(`닉네임 : ${JSON.stringify(res.data.name)}`);
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("다시 입력하세요.");
+      });
     localStorage.setItem("user", inputs[""]);
     navigate(`/records/${localStorage.getItem("user")}`);
   };
