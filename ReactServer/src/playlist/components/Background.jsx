@@ -11,6 +11,7 @@ const Background = () => {
           <Row>
             <Col>소환사이름</Col>
             <Col>티어</Col>
+            <h1>{localStorage.getItem("user")}</h1>
           </Row>
         </Container>
       </div>

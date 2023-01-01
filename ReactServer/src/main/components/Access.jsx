@@ -11,6 +11,7 @@ import "../css/input.css";
 
 const Access = () => {
   let navigate = useNavigate();
+
   const [inputs, setInputs] = useState({});
   const { Name } = inputs;
 
@@ -18,35 +19,31 @@ const Access = () => {
     e.preventDefault();
     const { value, name } = e.target;
     setInputs({ ...inputs, [name]: value });
+    console.log(inputs[""]);
   };
+
+  // const onClick = (e) => {
+  //   e.preventDefault();
+  //   const nameRequests = { Name };
+  //   alert(`사용자 이름: ${JSON.stringify(nameRequests)}`);
+  //   postMainApi(nameRequests)
+  //     .then((res) => {
+  //       console.log(`Response is ${res.config.data}`);
+  //       localStorage.setItem("token", JSON.stringify(res.config.data));
+  //       alert(`닉네임 : ${JSON.stringify(res.data.name)}`);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //       alert("다시 입력하세요.");
+  //     });
+  //   navigate("/records");
+  // };
 
   const onClick = (e) => {
-    e.preventDefault();
-    const nameRequests = { Name };
-    alert(`사용자 이름: ${JSON.stringify(nameRequests)}`);
-    postMainApi(nameRequests)
-      .then((res) => {
-        console.log(`Response is ${res.config.data}`);
-        localStorage.setItem("token", JSON.stringify(res.config.data));
-        alert(`닉네임 : ${JSON.stringify(res.data.name)}`);
-      })
-      .catch((err) => {
-        console.log(err);
-        alert("다시 입력하세요.");
-      });
-    navigate("/records");
+    localStorage.setItem("user", inputs[""]);
+    navigate(`/records/${localStorage.getItem("user")}`);
   };
 
-  // return(
-  //   <>
-  //   <form method="POST">
-  //     아이디 : <input type="text" name="Name" onChange={onChange} /><br/>
-  //       <button onClick={onClick} >
-  //         입력
-  //       </button>
-  //   </form>
-  //   </>
-  // )
   return (
     <>
       <div className="input">
